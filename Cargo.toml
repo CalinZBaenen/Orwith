@@ -1,0 +1,12 @@
+[lib]
+
+[package]
+description = "Turns the word \"orwith\" into a programmatical concept using Rust."
+repository = "https://www.github.com/CalinZBaenen/Orwith"
+homepage = "https://www.github.com/CalinZBaenen/Orwith"
+authors = ["Calin Z. Baenen <calinbaenen@gmail.com>"]
+edition = "2021"
+license = "MIT"
+version = "0.1.0"
+readme = "README.md"
+name = "orwith"
