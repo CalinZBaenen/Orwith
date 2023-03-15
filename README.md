@@ -10,15 +10,10 @@ This crate was created as [an example on DEV](https://dev.to/baenencalin/orwith-
 "Orwith" is a compound of English "or" and English "with" and is a synonym for "and/or".  
 A more proper definition of the word can be found [on DeviantArt, in the post “Def: Orwith”](https://www.deviantart.com/kattytheenby/journal/Def-Orwith-950684792).  
 > conjunction. Orwith:
->  1.) Sometimes being accompanied by or outright replaced with something (as specified in the context); and/or.
+>   1.) Being accompanied with, or outright replaced by, something (specified in the context); and/or.
+>   2.) Indicating that both options are possibilities; "or with".
 > 
 > Ex.  
->  "I want the green orwith blue rocks."
->  
->  "Audio orwith video components."
-> 
-> preposition. Orwith:
->  1.) Indicating that both options are possibilities; "or with".
-> 
-> Ex.
->  "I can work alone orwith others."
+>   "I want the green orwith blue rocks."  
+>   "Audio orwith video components."  
+>   "I can work alone orwith others."
