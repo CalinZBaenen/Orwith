@@ -4,23 +4,12 @@
 /// ```rust
 /// use orwith::Orwith;
 /// 
+/// let x:Option<&str> = Some("Hello!");
+/// let y:Option<&str> = Some("Goodbye!");
 /// 
-/// enum Component {
-/// 	Audio {/* ... */},
-/// 	Video {/* ... */}
-/// }
-/// 
-/// impl Component {
-/// 	fn audio() -> Self { Self::Audio {} }
-/// 	fn video() -> Self { Self::Video {} }
-/// }
-/// 
-/// 
-/// let audio_components = Some(Component::audio(/* ... */));
-/// let video_components = Some(Component::video(/* ... */));
-/// 
-/// let alternatives = Orwith::orwith(audio_components, video_components);
+/// let v = Orwith::orwith(x, y); // Orwith::With(...)
 /// ```
+#[derive(Debug)]
 pub enum Orwith<T> {
 	/// Neither option was chosen or both options were refused.
 	Neither,
@@ -31,6 +20,7 @@ pub enum Orwith<T> {
 }
 
 impl<T> Orwith<T> {
+	/// Takes two options and decides which variant to choose based on the presence of values.
 	pub fn orwith(x:Option<T>, y:Option<T>) -> Self {
 		match (x, y) {
 			(Some(vx), Some(vy))        => Self::With(vx, vy),
@@ -58,6 +48,24 @@ impl<T> Orwith<T> {
 		}
 	}
 	
+	/// Returns the first item and consumes this `Orwith` value.
+	pub fn to_first(self) -> Option<T> { self.to_pair().0 }
+	
+	/// Returns the last item and consumes this `Orwith` value.
+	pub fn to_last(self) -> Option<T> { self.to_pair().1 }
+	
+	/// Returns the first and last items and consumes this `Orwith` value.
+	pub fn to_pair(self) -> (Option<T>, Option<T>) {
+		let mut p = (None, None);
+		match self {
+			Self::With(x, y) => { (p.0, p.1) = (Some(x), Some(y)); }
+			Self::Or(v) => { (p.0, p.1) = (Some(v), None); }
+			_ => {}
+		}
+		
+		p
+	}
+	
 	/// Returns an immutable reference to the first value.
 	pub fn first(&self) -> Option<&T> {
 		match self {
@@ -74,4 +82,16 @@ impl<T> Orwith<T> {
 			_ => self.first()
 		}
 	}
+}
+
+impl<T> Default for Orwith<T> {
+	fn default() -> Self { Self::Neither }
+}
+
+impl<T> From<(Option<T>, Option<T>)> for Orwith<T> {
+	fn from(v:(Option<T>, Option<T>)) -> Self { Self::orwith(v.0, v.1) }
+}
+
+impl<T> Into<(Option<T>, Option<T>)> for Orwith<T> {
+	fn into(self) -> (Option<T>, Option<T>) { self.to_pair() }
 }
