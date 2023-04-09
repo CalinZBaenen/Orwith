@@ -11,8 +11,6 @@ This crate was created as [an example on DEV](https://dev.to/baenencalin/orwith-
 The definition can for "orwith" can be found [on DeviantArt, in the post “Def: Orwith”](https://www.deviantart.com/kattytheenby/journal/Def-Orwith-950684792).  
 > conjunction. Orwith:
 >   1. Expressing that, of two things, one or both are viable alternatives.
->     a. Being accompanied with, or outright replaced by, something (specified in the context); and/or.
->     b. Indicating that both options are possibilities; "or with".
 > 
 > Ex.  
 >   "I want the green orwith blue rocks."  

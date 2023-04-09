@@ -7,6 +7,6 @@ homepage = "https://www.github.com/CalinZBaenen/Orwith"
 authors = ["Calin Z. Baenen <calinbaenen@gmail.com>"]
 edition = "2021"
 license = "MIT"
-version = "0.1.2"
+version = "0.1.3"
 readme = "README.md"
 name = "orwith"
